@@ -16,7 +16,7 @@ void bax() {
 }
 
 bool baz(const char* str) {
-    auto lambda = [&str](int& i){
+    auto lambda = [&str](int& i) {
         i++;
 
         bax();
