@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
-	"name": "C++",
+	"name": "EVerest liblog C++ Dev Container",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
@@ -16,8 +16,9 @@
 		}
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/common-utils:2": {},
-
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true,
+		  },
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -27,7 +28,9 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cd /workspaces && sudo git clone https://github.com/US-JOET/everest-cmake.git && sudo chown vscode.vscode everest-cmake",
+	"postCreateCommand": [
+		".devcontainer/post_attach.sh"
+	]
 
 	// Configure tool-specific properties.
 	// "customizations": {},

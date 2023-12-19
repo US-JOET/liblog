@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cmake -S . -B build -G Ninja
+cmake --build build --clean-first
+cd build || exit
+sudo ninja install
+gcovr
+cd ..

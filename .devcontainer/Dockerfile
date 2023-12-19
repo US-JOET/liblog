@@ -15,6 +15,9 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 # [Optional] Uncomment this section to install additional packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends libboost1.74-all-dev ninja-build
+    && apt-get -y install --no-install-recommends doxygen gcovr graphviz lcov libboost1.74-all-dev ninja-build python3-pip
 
 # RUN cd /workspaces && sudo git clone https://github.com/US-JOET/everest-cmake.git && sudo chown vscode.vscode everest-cmake
+
+# Add ./bin to PATH
+ENV PATH="${PATH}:./.ci/build-kit"
