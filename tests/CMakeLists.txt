@@ -10,11 +10,13 @@
 
 # add_test(liblog_test liblog_test)
 
-FetchContent_Declare(
-        googletest
-        URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
-        URL_HASH SHA256=1f357c27ca988c3f7c6b4bf68a9395005ac6761f034046e9dde0896e3aba00e4
-)
+# FetchContent_Declare(
+#         googletest
+#         URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+#         URL_HASH SHA256=1f357c27ca988c3f7c6b4bf68a9395005ac6761f034046e9dde0896e3aba00e4
+# )
+
+
 
 #set(gtest_force_shared_crt OFF CACHE BOOL "" FORCE)
 # Force Google Test to link the C/C++ runtimes dynamically when
@@ -26,11 +28,22 @@ if (MSVC)
 endif()
 
 # Fetch GoogleTest amd make build scripts available
-FetchContent_MakeAvailable(googletest)
+# FetchContent_MakeAvailable(googletest)
 
-include(GoogleTest)
+find_package(GTest REQUIRED)
 
-set(TEST_NAME LibLogTests)
+# include(GoogleTest)
+
+set(TEST_NAME liblog_test)
 add_executable(${TEST_NAME} liblog_test.cpp)
-target_link_libraries(${TEST_NAME} PRIVATE lib gtest_main)
+
+message(">>> ${GTEST_INCLUDE_DIRS}")
+
+target_include_directories(${TEST_NAME} PUBLIC ${GTEST_INCLUDE_DIRS})
+target_link_libraries(${TEST_NAME} PRIVATE
+        ${GTEST_LIBRARIES}
+        ${GTEST_MAIN_LIBRARIES}
+)
+
+# target_link_libraries(${TEST_NAME} PRIVATE lib gtest_main)
 gtest_discover_tests(${TEST_NAME})

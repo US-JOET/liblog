@@ -15,7 +15,7 @@ find_package(everest-cmake 0.1 REQUIRED
 # options
 option(BUILD_BACKTRACE_SUPPORT "Build with backtrace support from libbacktrace" OFF)
 option(BUILD_TESTING "Run unit tests" ON)
-option(BUILD_EXAMPLES "Build liblog example binaries." ON)
+option(BUILD_EXAMPLES "Build liblog example binaries." OFF)
 option(LOG_INSTALL "Install the library (shared data might be installed anyway)" ${EVC_MAIN_PROJECT})
 option(CMAKE_RUN_CLANG_TIDY "Run clang-tidy" ON)
 option(LIBLOG_USE_BOOST_FILESYSTEM "Usage of boost/filesystem.hpp instead of std::filesystem" OFF)
@@ -70,6 +70,7 @@ endif()
 
 # testing
 if(BUILD_TESTING)
+    # enable_testing()
     include(CTest)
     add_subdirectory(tests)
     

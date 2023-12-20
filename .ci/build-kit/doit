@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
 
 cmake -S . -B build -G Ninja
-cmake --build build --clean-first
-cd build || exit
-sudo ninja install
-gcovr
-cd ..
+# cd build || exit
+ninja -C build
+ninja -C build test
+
+# cd ..
+
+# make
+# # make test --rerun-failed --output-on-failure
+# # test
+# # gcovr
+# cd ..
+
+# mkdir build && cd build
+# cmake ..
+# make 
+# make test
+# cd ..
