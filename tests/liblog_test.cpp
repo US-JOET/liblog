@@ -19,5 +19,5 @@ TEST(LibTimerUnitTest, test_invalid_datetime) {
     ASSERT_TRUE(1 == 1);
 }
 
-}
-}
+} // namespace Logging
+} // namespace Everest
