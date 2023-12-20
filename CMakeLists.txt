@@ -6,8 +6,6 @@ project(everest-log
     LANGUAGES CXX C
 )
 
-include(FetchContent)
-
 find_package(everest-cmake 0.1 REQUIRED
     PATHS ../everest-cmake
 )
@@ -70,7 +68,6 @@ endif()
 
 # testing
 if(BUILD_TESTING)
-    # enable_testing()
     include(CTest)
     add_subdirectory(tests)
     

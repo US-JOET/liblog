@@ -4,7 +4,7 @@ cmake -S . -B build -G Ninja
 # cd build || exit
 ninja -C build
 ninja -C build test
-
+ninja -C build gcov
 # cd ..
 
 # make

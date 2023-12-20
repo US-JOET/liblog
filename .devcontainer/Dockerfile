@@ -14,6 +14,8 @@ RUN apt-get update \
         ninja-build \
         make \
         cmake \
+        doxygen \
+        graphviz \
         # compilers
         binutils \
         gcc \
