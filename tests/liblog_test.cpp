@@ -16,7 +16,7 @@ protected:
 };
 
 TEST(LibTimerUnitTest, test_invalid_datetime) {
-    ASSERT_TRUE(1==1);
+    ASSERT_TRUE(1 == 1);
 }
 
 }
